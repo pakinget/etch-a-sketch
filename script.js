@@ -1,4 +1,5 @@
 const pad = document.querySelector(".pad");
+const colour = document.querySelector(".colour");
 
 function generatePad(num = 16) {
 
@@ -10,7 +11,7 @@ function generatePad(num = 16) {
 			row.appendChild(square);
 	
 			square.addEventListener("mousemove", () => {
-				event.target.style.backgroundColor = "#09EBB0";
+				event.target.style.backgroundColor = colour.value;
 			});
 		}
 		pad.appendChild(row);
