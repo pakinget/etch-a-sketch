@@ -13,6 +13,8 @@ body {
 	width: 75vmin;
 	height: 75vmin;
 	border: 4px solid black;
+	user-drag: none;
+	user-select: none;
 }
 .row {
 	display: flex;
