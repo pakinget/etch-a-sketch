@@ -1,8 +1,9 @@
 body {
 	min-height: 100vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
-	padding: 8vmin;
+	padding: 0 8vmin;
 	margin: 0;
 }
 
@@ -44,4 +45,17 @@ body {
 
 .selected {
 	border: 4px solid #8B9C7C;
+}
+
+.container {
+	padding: 2vmin;
+	display: flex;
+	justify-content: space-between;
+}
+
+h2 {
+	font-family: SquareAntiquaBookOblique;
+	font-size: 5vh;
+	margin: 0;
+	text-align: center;;
 }
