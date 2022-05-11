@@ -1,7 +1,17 @@
+const body = document.querySelector("body");
 const pad = document.querySelector(".pad");
 const colour = document.querySelector(".colour");
 const modes = document.querySelectorAll(".modeButton");
 let mode;
+let mouseDown = false;
+
+body.addEventListener("mousedown", () => {
+	mouseDown = true;
+});
+
+body.addEventListener("mouseup", () => {
+	mouseDown = false;
+});
 
 function generatePad(num = 16) {
 	for(let i = 0; i < num; i++) {
@@ -12,7 +22,8 @@ function generatePad(num = 16) {
 			row.appendChild(square);
 	
 			square.addEventListener("mouseover", (e) => {
-				if (mode == "normal") e.target.style.backgroundColor = colour.value;
+				if (!mouseDown) return;
+				else if (mode == "normal") e.target.style.backgroundColor = colour.value;
 				else if (mode == "rainbow") e.target.style.backgroundColor = `rgb(${Math.floor(Math.random()*255)}, ${Math.floor(Math.random()*255)}, 
 				${Math.floor(Math.random()*255)})`;
 				else if (mode == "gray") {
