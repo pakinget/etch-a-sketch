@@ -27,14 +27,22 @@ function generatePad(num = 16) {
 					e.target.style.backgroundColor = colour.value;
 				else if (mode == "rainbow")
 					e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`;
-				else if (mode == "gray") {
-					if (e.target.style.backgroundColor == "")
-						e.target.style.backgroundColor = "rgba(0, 0, 0, 0.1)";
+				else if (mode == "shade") {
+					if (e.target.style.backgroundColor == "") {
+						let hex = colour.value;
+						let r = parseInt(hex.slice(1, 3), 16);
+						let g = parseInt(hex.slice(3, 5), 16);
+						let b = parseInt(hex.slice(5, 7), 16);
+
+						e.target.style.backgroundColor = "rgba(" + r + ", " + g + ", " + b + ", " + 0.1 + ")";
+					}
 					else {
 						let currentArr = e.target.style.backgroundColor.split(",");;
 						let current = currentArr[3].slice(1, 4);
-						let added = `${Number(current) + 0.1}`;
-						e.target.style.backgroundColor = `rgba(0, 0, 0, ${added})`;
+						let added = ` ${Number(current) + 0.1})`;
+						currentArr[3] = added;
+						let newColour = currentArr.join(",");
+						e.target.style.backgroundColor = newColour;
 					}
 				}
 			});
